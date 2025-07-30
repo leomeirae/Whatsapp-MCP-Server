@@ -24,7 +24,7 @@ WHATSAPP_BUSINESS_ACCOUNT_ID=your_business_account_id_here
 # Server Configuration
 PORT=45679
 NODE_ENV=production
-WHATSAPP_API_VERSION=v18.0
+WHATSAPP_API_VERSION=v23.0
 
 # Optional Webhook Configuration
 WEBHOOK_VERIFY_TOKEN=your_webhook_verify_token

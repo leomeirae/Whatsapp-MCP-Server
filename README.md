@@ -52,7 +52,7 @@ Na aba **Environment Variables** do Coolify, configure:
 - `WHATSAPP_BUSINESS_ACCOUNT_ID`: ID da conta de negócio
 
 #### Variáveis Opcionais:
-- `WHATSAPP_API_VERSION`: v18.0 (padrão)
+- `WHATSAPP_API_VERSION`: v23.0 (padrão)
 - `PORT`: 45679 (padrão)
 
 ### Passo 4: Fazer o Deploy

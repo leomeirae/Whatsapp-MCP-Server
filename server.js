@@ -195,7 +195,7 @@ async function handleToolCall(params) {
 
 async function sendTextMessage({ to, message }) {
   try {
-    const url = `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+    const url = `https://graph.facebook.com/${process.env.WHATSAPP_API_VERSION || 'v23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
     console.log('Sending message to URL:', url);
     console.log('Phone Number ID:', process.env.WHATSAPP_PHONE_NUMBER_ID);
     console.log('API Version:', process.env.WHATSAPP_API_VERSION);
@@ -235,7 +235,7 @@ async function sendTextMessage({ to, message }) {
 
 async function sendTemplateMessage({ to, templateName, language, components = [] }) {
   try {
-    const url = `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+    const url = `https://graph.facebook.com/${process.env.WHATSAPP_API_VERSION || 'v23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
     console.log('Sending template message to URL:', url);
     
     const response = await axios.post(
@@ -279,7 +279,7 @@ async function sendTemplateMessage({ to, templateName, language, components = []
 
 async function sendImageMessage({ to, imageUrl, caption }) {
   try {
-    const url = `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+    const url = `https://graph.facebook.com/${process.env.WHATSAPP_API_VERSION || 'v23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
     console.log('Sending image message to URL:', url);
     
     const response = await axios.post(
@@ -320,7 +320,7 @@ async function sendImageMessage({ to, imageUrl, caption }) {
 
 async function markMessageAsRead({ messageId }) {
   try {
-    const url = `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+    const url = `https://graph.facebook.com/${process.env.WHATSAPP_API_VERSION || 'v23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
     console.log('Marking message as read to URL:', url);
     
     await axios.post(
