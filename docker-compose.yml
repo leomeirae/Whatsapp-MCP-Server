@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  whatsapp-mcp:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "45679:45679"
+    environment:
+      - PORT=45679
+      - NODE_ENV=production
+    env_file:
+      - .env 
