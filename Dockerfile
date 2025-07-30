@@ -1,6 +1,9 @@
 # Use uma imagem base oficial do Node.js
 FROM node:20-alpine
 
+# Install curl for health checks
+RUN apk add --no-cache curl
+
 # Define o diretório de trabalho
 WORKDIR /usr/src/app
 

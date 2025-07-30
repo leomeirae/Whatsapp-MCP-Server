@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  whatsapp-mcp:
+    build:
+      context: .
+      dockerfile: .coolify/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "45679:45679"
+    environment:
+      - PORT=45679
+      - NODE_ENV=production
+      - WHATSAPP_API_VERSION=v18.0
+      # These will be overridden by Coolify environment variables
+      - WHATSAPP_API_TOKEN=${WHATSAPP_API_TOKEN}
+      - WHATSAPP_PHONE_NUMBER_ID=${WHATSAPP_PHONE_NUMBER_ID}
+      - WHATSAPP_BUSINESS_ACCOUNT_ID=${WHATSAPP_BUSINESS_ACCOUNT_ID}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:45679/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - coolify-network
+
+networks:
+  coolify-network:
+    external: true 

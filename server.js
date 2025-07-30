@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { spawn } = require('child_process');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -342,9 +343,9 @@ async function markMessageAsRead({ messageId }) {
 }
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`WhatsApp MCP HTTP Server running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/health`);
-  console.log(`Status: http://localhost:${PORT}/status`);
-  console.log(`MCP endpoint: http://localhost:${PORT}/mcp`);
+  console.log(`Health check: http://0.0.0.0:${PORT}/health`);
+  console.log(`Status: http://0.0.0.0:${PORT}/status`);
+  console.log(`MCP endpoint: http://0.0.0.0:${PORT}/mcp`);
 }); 
