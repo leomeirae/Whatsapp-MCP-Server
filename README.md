@@ -367,8 +367,8 @@ curl -X POST http://bw48gc80kokwwckg0wskc40c.157.180.32.249.sslip.io/mcp \
   "params": {
     "name": "sendTextMessage",
     "arguments": {
-      "to": "5511999999999",
-      "message": "Olá! Bem-vindo ao nosso serviço. Como posso ajudá-lo hoje?"
+      "to": "5581997498268",
+      "message": "👋 Olá! Bem-vindo ao WhatsApp MCP Server!\n\n✅ Servidor funcionando perfeitamente\n✅ Integração com WhatsApp Business API ativa\n✅ Pronto para uso com agentes de IA"
     }
   }
 }
@@ -383,7 +383,7 @@ curl -X POST http://bw48gc80kokwwckg0wskc40c.157.180.32.249.sslip.io/mcp \
   "params": {
     "name": "sendTemplateMessage",
     "arguments": {
-      "to": "5511999999999",
+      "to": "5581997498268",
       "templateName": "welcome_profile_site",
       "language": "pt_BR",
       "components": [
@@ -402,6 +402,8 @@ curl -X POST http://bw48gc80kokwwckg0wskc40c.157.180.32.249.sslip.io/mcp \
 }
 ```
 
+**⚠️ Nota:** Templates requerem número exato de parâmetros conforme aprovado pelo WhatsApp. Erro comum: `(#132000) Number of parameters does not match`.
+
 ### **Envio de Imagem com Legenda:**
 ```json
 {
@@ -411,9 +413,9 @@ curl -X POST http://bw48gc80kokwwckg0wskc40c.157.180.32.249.sslip.io/mcp \
   "params": {
     "name": "sendImageMessage",
     "arguments": {
-      "to": "5511999999999",
-      "imageUrl": "https://example.com/product-image.jpg",
-      "caption": "Confira nosso novo produto!"
+      "to": "5581997498268",
+      "imageUrl": "https://picsum.photos/400/300",
+      "caption": "🖼️ Teste do WhatsApp MCP Server - Imagem enviada com sucesso!"
     }
   }
 }
@@ -423,9 +425,10 @@ curl -X POST http://bw48gc80kokwwckg0wskc40c.157.180.32.249.sslip.io/mcp \
 
 ### **Erros Comuns:**
 1. **"WHATSAPP_API_TOKEN not set"**: Configure a variável de ambiente
-2. **"Invalid phone number"**: Use formato internacional
+2. **"Invalid phone number"**: Use formato internacional (ex: "5581997498268")
 3. **"Template not found"**: Verifique se o template está aprovado
 4. **"Rate limit exceeded"**: Aguarde antes de enviar mais mensagens
+5. **"(#132000) Number of parameters does not match"**: Ajuste os parâmetros do template conforme aprovado
 
 ### **Logs de Debug:**
 O servidor loga todas as operações com timestamp e detalhes:
@@ -437,6 +440,38 @@ Sending message to URL: https://graph.facebook.com/v23.0/599096403294262/message
 ## 📄 **Licença**
 
 MIT
+
+## ✅ **Resultados dos Testes**
+
+### **Testes Realizados com Sucesso:**
+- ✅ **Mensagem de Texto Simples** - Funcionando perfeitamente
+- ✅ **Imagem com Legenda** - Funcionando perfeitamente  
+- ✅ **Mensagem de Boas-vindas** - Funcionando perfeitamente
+- ✅ **Status do Sistema** - Funcionando perfeitamente
+
+### **Exemplo de Resposta de Sucesso:**
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Message sent successfully to 5581997498268. Message ID: wamid.HBgMNTU4MTk3NDk4MjY4FQIAERgSRUVDRDEyMDFGQzNERjMxNkQ5AA=="
+      }
+    ]
+  }
+}
+```
+
+### **Status Atual do Servidor:**
+- 🟢 **Servidor:** ONLINE e funcionando
+- 🟢 **WhatsApp API:** Conectado e operacional
+- 🟢 **MCP Protocol:** Ativo e respondendo
+- 🟢 **Envio de Mensagens:** 100% funcional
+- 🟢 **Envio de Imagens:** 100% funcional
+- ⚠️ **Templates:** Requer ajuste de parâmetros
 
 ---
 
