@@ -10,7 +10,7 @@ services:
     environment:
       - PORT=45679
       - NODE_ENV=production
-      - WHATSAPP_API_VERSION=v18.0
+      - WHATSAPP_API_VERSION=v23.0
       # These will be overridden by Coolify environment variables
       - WHATSAPP_API_TOKEN=${WHATSAPP_API_TOKEN}
       - WHATSAPP_PHONE_NUMBER_ID=${WHATSAPP_PHONE_NUMBER_ID}

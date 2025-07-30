@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { spawn } = require('child_process');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -197,7 +196,7 @@ async function handleToolCall(params) {
 async function sendTextMessage({ to, message }) {
   try {
     const response = await axios.post(
-      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '18.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
+      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
       {
         messaging_product: "whatsapp",
         to: to,
@@ -232,7 +231,7 @@ async function sendTextMessage({ to, message }) {
 async function sendTemplateMessage({ to, templateName, language, components = [] }) {
   try {
     const response = await axios.post(
-      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '18.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
+      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
       {
         messaging_product: "whatsapp",
         to: to,
@@ -273,7 +272,7 @@ async function sendTemplateMessage({ to, templateName, language, components = []
 async function sendImageMessage({ to, imageUrl, caption }) {
   try {
     const response = await axios.post(
-      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '18.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
+      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
       {
         messaging_product: "whatsapp",
         to: to,
@@ -311,7 +310,7 @@ async function sendImageMessage({ to, imageUrl, caption }) {
 async function markMessageAsRead({ messageId }) {
   try {
     await axios.post(
-      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '18.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
+      `https://graph.facebook.com/v${process.env.WHATSAPP_API_VERSION || '23.0'}/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
       {
         messaging_product: "whatsapp",
         status: "read",
@@ -343,9 +342,9 @@ async function markMessageAsRead({ messageId }) {
 }
 
 // Start server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`WhatsApp MCP HTTP Server running on port ${PORT}`);
-  console.log(`Health check: http://0.0.0.0:${PORT}/health`);
-  console.log(`Status: http://0.0.0.0:${PORT}/status`);
-  console.log(`MCP endpoint: http://0.0.0.0:${PORT}/mcp`);
+  console.log(`Health check: http://localhost:${PORT}/health`);
+  console.log(`Status: http://localhost:${PORT}/status`);
+  console.log(`MCP endpoint: http://localhost:${PORT}/mcp`);
 }); 

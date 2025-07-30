@@ -19,7 +19,7 @@ COPY . .
 # Set default environment variables
 ENV PORT=45679
 ENV NODE_ENV=production
-ENV WHATSAPP_API_VERSION=v18.0
+ENV WHATSAPP_API_VERSION=v23.0
 
 # Expose port
 EXPOSE 45679

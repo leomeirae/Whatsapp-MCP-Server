@@ -19,7 +19,7 @@ COPY . .
 # Define variáveis de ambiente padrão
 ENV PORT=45679
 ENV NODE_ENV=production
-ENV WHATSAPP_API_VERSION=v18.0
+ENV WHATSAPP_API_VERSION=v23.0
 
 # Expõe a porta
 EXPOSE 45679
